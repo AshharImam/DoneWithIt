@@ -1,6 +1,9 @@
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
+  Dimensions,
+  StatusBar,
+  Platform,
   StyleSheet,
   Text,
   Image,
@@ -13,42 +16,29 @@ import {
 } from "react-native";
 
 export default function App() {
+  console.log(Dimensions.get("screen"));
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello, World!</Text>
-      <TouchableOpacity onPress={() => console.log("Image pressed")}>
-        <View>
-          <TextInput
-            placeholder="Enter Your Name"
-            onChange={(text) => {
-              console.log(text);
-            }}
-            style={{
-              height: 40,
-              backgroundColor: "dodgerblue",
-              paddingBottom: 10,
-            }}
-          />
-          <Button
-            title="Upload Image"
-            onPress={() =>
-              Alert.alert("My Title", "Button Pressed", [
-                { text: "Yes" },
-                { text: "No" },
-              ])
-            }
-          />
-        </View>
-        {/* <Image
-          source={{
-            width: 200,
-            height: 300,
-            uri:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaCo8w-i_zVTMXXhSFozoAPIS-643psWtfTg&usqp=CAU",
-          }}
-        /> */}
-      </TouchableOpacity>
-      <StatusBar style="auto" />
+      {/* <Text
+        style={{
+          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+          fontSize: 20,
+          justifyContent: "center",
+        }}
+      >
+        Hello, World!
+      </Text> */}
+      <View
+        style={{
+          flex: 1,
+        }}
+      >
+        <View style={{ flex: 3, backgroundColor: "tomato" }} />
+        <View style={{ flex: 1, backgroundColor: "orange" }} />
+        <View style={{ flex: 1, backgroundColor: "yellow" }} />
+        <View style={{ flex: 1, backgroundColor: "dodgerblue" }} />
+      </View>
+      <View style={{ flex: 1, backgroundColor: "black" }} />
     </SafeAreaView>
   );
 }
@@ -57,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
